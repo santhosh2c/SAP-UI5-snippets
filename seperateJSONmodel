@@ -1,0 +1,45 @@
+"JSONModel": {
+				"type": "delete.delete.model.appDataModel"
+			}
+add above line sinmanifest models
+this.getOwnerComponent().getModel("JSONModel")
+access model with above line
+
+sap.ui.define([
+	"sap/ui/model/json/JSONModel"
+], function (JSONModel) {
+	"use strict";
+	
+	return JSONModel.extend("delete.delete.model.appDataModel", {
+		
+		constructor: function() {
+			JSONModel.prototype.constructor.apply(this, arguments);
+			this.Editable();
+		},
+		
+		Editable: function() {
+			this.setProperty("/Editable", {
+			 	DestHU: true,
+			 	SourceBin: false,
+			 	DestDoor: false,
+			 	ShipTo: false,
+			 	ScanDoor: false
+		 	});	
+		},
+		
+		Visible: function() {
+			this.setProperty("/Visible", {
+		 		DestHU: true,
+			 	SourceBin: false,
+			 	DestDoor: false,
+			 	ShipTo: false,
+			 	ScanDoor: false,
+			 	Detail: false,
+			 	Move: false,
+			 	Next: true,
+			 	Back: false
+		 	});	
+		}
+	});
+	
+});
